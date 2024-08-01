@@ -27,4 +27,10 @@ public class LongestUniqueSubstringTest {
         String str = "aaaaa";
         assertThat(LongestUniqueSubstring.longestUniqueSubstring(str)).isEqualTo("a");
     }
+
+    @Test
+    public void whenStringHasRepeatedCharactersInBothSubstrings() {
+        String str = "abcbcdedopt";
+        assertThat(LongestUniqueSubstring.longestUniqueSubstring(str)).isEqualTo("bcde");
+    }
 }
