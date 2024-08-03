@@ -1,12 +1,10 @@
 package ru.job4j.algo.tree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Node<E> {
      private E value;
-     private List<Node<E>> children = new ArrayList<Node<E>>();
+     private List<Node<E>> children = new ArrayList<>();
 
     public Node(E value) {
         this.value = value;
@@ -29,5 +27,25 @@ public class Node<E> {
 
     public List<Node<E>> getChildren() {
         return children;
+    }
+
+    public void setChildren(List<Node<E>> children) {
+        this.children = children;
+    }
+
+    public void addChild(Node<E> children) {
+        this.children.add(children);
+    }
+
+    public void addAllChildren(Collection<Node<E>> children) {
+        this.children.addAll(children);
+    }
+
+    public Optional<Node<E>> removeChild(int i) {
+        return Optional.ofNullable(this.children.remove(i));
+    }
+
+    public void removeChild(Node<E> node) {
+        this.children.remove(node);
     }
 }
