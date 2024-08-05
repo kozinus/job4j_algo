@@ -96,8 +96,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
     private List<T> inPreOrder(Node localRoot, List<T> list) {
         if (localRoot != null) {
             list.add(localRoot.key);
-            inSymmetricalOrder(localRoot.left, list);
-            inSymmetricalOrder(localRoot.right, list);
+            inPreOrder(localRoot.left, list);
+            inPreOrder(localRoot.right, list);
         }
         return list;
     }
@@ -110,8 +110,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     private List<T> inPostOrder(Node localRoot, List<T> list) {
         if (localRoot != null) {
-            inSymmetricalOrder(localRoot.left, list);
-            inSymmetricalOrder(localRoot.right, list);
+            inPostOrder(localRoot.left, list);
+            inPostOrder(localRoot.right, list);
             list.add(localRoot.key);
         }
         return list;
