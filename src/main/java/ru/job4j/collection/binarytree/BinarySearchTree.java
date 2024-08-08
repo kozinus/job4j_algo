@@ -210,6 +210,20 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return result;
     }
 
+    public void clear() {
+        Node node = root;
+        clear(node);
+        root = null;
+    }
+
+    private void clear(Node first) {
+        if (first != null) {
+            clear(first.left);
+            clear(first.right);
+            first.clear();
+        }
+    }
+
     @Override
     public String toString() {
         return PrintTree.getTreeDisplay(root);
